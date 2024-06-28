@@ -42,7 +42,7 @@
           </li>
           <li class="nav__link">
             <a
-              href="#"
+              href="#" onclick="toggleModal()"
               class="nav__link--anchor link__hover-effect link__hover-effect--black"
               >Contact</a
             >
@@ -66,7 +66,7 @@
             with a strong passion for building web applications with great user
             expericens.
             <br />
-            Here's a bit more <b class="blue">about me.</b>
+            Here's a bit more <b class="blue click" onclick="toggleModal()">about me.</b>
           </p>
           <div class="social__list">
             <a
@@ -93,7 +93,7 @@
           </div>
         </div>
       </header>
-      <button class="mail__btn click">
+      <button class="mail__btn click" onclick="toggleModal()">
         <i class="fas fa-envelope"></i>
       </button>
       <a href="#projects" class="scroll">
@@ -102,7 +102,7 @@
       <div class="modal">
         <div class="modal__half modal__about">
           <h3 class="modal__title modal__title--about">
-            Here's a bit about me
+            About Me
           </h3>
           <h4 class="modal__sub-title modal__sub-title--about"></h4>
           <p>
@@ -171,6 +171,8 @@
           </div>
         </div>
         <div class="modal__half modal__contact">
+            <i class="fas fa-times modal__exit click" onclick="toggleModal()"></i>
+
             <h3 class="modal__title modal__title--contact">
                 Let's connect!
             </h3>
@@ -201,7 +203,6 @@
                 Thanks for the message! Looking forward to speaking to you soon.
             </div>
         </div>
-        <i class="fas fa-times modal__exit click"></i>
       </div>
     </section>
     <section id="projects">
