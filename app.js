@@ -2,6 +2,18 @@
 // service_l01i4fh
 // sZwAMDn0LIKJbgo_J
 
+let contrastToggle = false;
+function toggleContrast(){
+    contrastToggle = !contrastToggle;
+    document.body.classList += " dark-theme";
+
+    if(contrastToggle){
+        document.body.classList += " dark-theme";
+    }else{
+        document.body.classList.remove("dark-theme")
+    }
+}
+
 function contact(event){
     event.preventDefault();
     const loading = document.querySelector('.modal__overlay--loading')
