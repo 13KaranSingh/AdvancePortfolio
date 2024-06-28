@@ -1,0 +1,27 @@
+// template_l9m6vhb
+// service_l01i4fh
+// sZwAMDn0LIKJbgo_J
+
+function contact(event){
+    event.preventDefault();
+    const loading = document.querySelector('.modal__overlay--loading')
+    const success = document.querySelector('.modal__overlay--succes')
+    loading.classList += " modal__overlay--visible";
+
+
+    emailjs.sendForm(
+        'service_l01i4fh',
+        'template_l9m6vhb',
+        event.target,
+        'sZwAMDn0LIKJbgo_J'
+    ).then(() =>{
+        loading.classList.remove('modal__overlay--visible')
+        success.classList += " modal__overlay--visible"
+    }).catch(() =>{
+        loading.classList.remove('modal__overlay--visible')
+        alert(
+            "The email service is temporarily unavailable. Please contact me directly on kasingh@udel.edu."
+        )
+
+    })
+}
