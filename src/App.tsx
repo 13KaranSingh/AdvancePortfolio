@@ -13,6 +13,8 @@ type ContactState = "idle" | "submitting" | "success" | "error";
 type ActiveSection = "landing-page" | "projects";
 
 const RESUME_PATH = "/assets/Revised-Resume-Full-time.pdf";
+const isGitHubPages =
+  typeof window !== "undefined" && window.location.hostname.endsWith("github.io");
 
 const techStack = [
   { name: "React", iconUrl: "https://cdn.simpleicons.org/react/61DAFB" },
@@ -146,6 +148,18 @@ function App() {
     if (formData.company.trim()) {
       setContactState("success");
       setContactFeedback("Thanks for reaching out. I will get back to you soon.");
+      return;
+    }
+
+    if (isGitHubPages) {
+      const subject = encodeURIComponent(`Portfolio contact from ${formData.user_name.trim()}`);
+      const body = encodeURIComponent(
+        `Name: ${formData.user_name.trim()}\nEmail: ${formData.user_email.trim()}\n\n${formData.message.trim()}`
+      );
+
+      window.location.href = `mailto:karanvir_gurn@yahoo.com?subject=${subject}&body=${body}`;
+      setContactState("success");
+      setContactFeedback("GitHub Pages cannot run the contact API, so your email app was opened instead.");
       return;
     }
 
